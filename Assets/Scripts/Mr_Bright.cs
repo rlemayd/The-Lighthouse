@@ -5,19 +5,19 @@ using UnityEngine;
 public class Mr_Bright : MonoBehaviour
 {
     [Header("Movement")]
-    private float ACCELERATION;
-    private float MAX_SPEED;
-    private float MAX_RUNNING_SPEED;
-    private float DECELERATION;
+    private const float ACCELERATION = 8f;
+    private float MAX_SPEED = 1.5f;
+    private float MAX_RUNNING_SPEED = 3f;
+    private float DECELERATION = 13f;
     private float horizontalInput;
     private bool isRunning = false;
     private bool isFacingRight;
-    private bool changingDirection => (rb.velocity.x > 0f && horizontalInput < 0f) || (rb.velocity.x < 0f && horizontalInput > 0f);
+    private bool isChangingDirection => (rb.velocity.x > 0f && horizontalInput < 0f) || (rb.velocity.x < 0f && horizontalInput > 0f);
 
     [Header("Jump")]
-    private float JUMPFORCE;
+    private float JUMPFORCE = 3f;
+    private float AIR_DECELERATION = 2f;
     [SerializeField] private float groundRaycastlength;
-    private float AIR_DECELERATION;
     private bool onGround;
     private int extraJumps = 1;
     private int currentJumps;
@@ -30,12 +30,6 @@ public class Mr_Bright : MonoBehaviour
 
     private void Start()
     {
-        ACCELERATION = 8f;
-        MAX_SPEED = 1.5f;
-        MAX_RUNNING_SPEED = 3f;
-        DECELERATION = 13f;
-        JUMPFORCE = 2f;
-        AIR_DECELERATION = 2;
         isFacingRight = true;
         rb = GetComponent<Rigidbody2D>();
     }
@@ -95,7 +89,7 @@ public class Mr_Bright : MonoBehaviour
 
     void ApplyGroundDeceleration()
     {
-        if (Mathf.Abs(horizontalInput) < 0.6f || changingDirection)
+        if (Mathf.Abs(horizontalInput) < 0.6f || isChangingDirection)
         {
             rb.drag = DECELERATION;
         }
