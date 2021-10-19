@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class Mr_Bright : MonoBehaviour
 {
@@ -27,17 +28,30 @@ public class Mr_Bright : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField] private LayerMask groundLayer;
 
+    //Invisibilidad
+    Light2D light;
+    float timerInvisibilidad=0;
+    bool statusInvisibilidad=false;
+
 
     private void Start()
     {
         isFacingRight = true;
         rb = GetComponent<Rigidbody2D>();
+        light = this.GetComponent<Light2D>();
     }
 
     private void Update()
     {
         ProcessInputs();
         if (canJump) Jump();
+        if (timerInvisibilidad<0){
+            light.intensity=1.5f;
+            statusInvisibilidad = false;
+        }
+        else{
+            timerInvisibilidad-=Time.deltaTime;
+        }
     }
 
     void FixedUpdate()
@@ -51,6 +65,14 @@ public class Mr_Bright : MonoBehaviour
     {
         horizontalInput = Input.GetAxis("Horizontal");
         isRunning = Input.GetKey(KeyCode.LeftShift);
+        if (Input.GetKey(KeyCode.F))
+        {
+            if(statusInvisibilidad == false){
+                Invisibilidad();
+                statusInvisibilidad = true;
+            }
+            
+        }
     }
 
     void Jump()
@@ -133,6 +155,13 @@ public class Mr_Bright : MonoBehaviour
                 
             } 
         }
+    }
+
+    void Invisibilidad(){
+        
+        timerInvisibilidad = 5;
+        light.intensity=0.8f;
+        
     }
 
 }
