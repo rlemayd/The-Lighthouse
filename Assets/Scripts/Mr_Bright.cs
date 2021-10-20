@@ -161,7 +161,11 @@ public class Mr_Bright : MonoBehaviour
         
         timerInvisibilidad = 5;
         light.intensity=0.8f;
-        
+    }
+
+    public void DisableMrBright()
+    {
+        gameObject.SetActive(false);
     }
 
 }

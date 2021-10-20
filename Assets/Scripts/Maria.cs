@@ -42,7 +42,7 @@ public class Maria : MonoBehaviour
         }
         else{
             audio.Stop();
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
            
         }
         

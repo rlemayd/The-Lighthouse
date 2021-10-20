@@ -4,20 +4,15 @@ using UnityEngine;
 
 public class ScareBoard : MonoBehaviour
 {
-    public GameObject scare1;
-    public GameObject scare2;
-    public GameObject scare3;
-    public GameObject lose;
-    //public GameObject luzTablero;
-    //Light2D luz;
-    // Start is called before the first frame update
+    public GameObject scare1, scare2, scare3, lose, restartButton;
+
     void Start()
     {
         scare1.SetActive(true);
         scare2.SetActive(true);
         scare3.SetActive(true);
         lose.SetActive(false);
-        //luz = luzTablero.GetComponent<Light2D>();
+        restartButton.SetActive(false);
     }
 
     // Update is called once per frame
@@ -29,10 +24,10 @@ public class ScareBoard : MonoBehaviour
         else if(number == 1){
             scare2.SetActive(false);
         }
-        else if(number == 0){
-            scare1.SetActive(false);
-            lose.SetActive(true);
-            //luz.intensity = 6;
+        else if(number == 0){             
+            scare1.SetActive(false);      
+            lose.SetActive(true);         
+            restartButton.SetActive(true);
         }
     }
 }

@@ -8,6 +8,8 @@ TagManager:
   - Light
   - Enemy
   - Rope
+  - Exit Door
+  - Mr Bright
   layers:
   - Default
   - TransparentFX
