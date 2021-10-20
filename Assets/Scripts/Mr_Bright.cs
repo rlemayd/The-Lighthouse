@@ -12,7 +12,7 @@ public class Mr_Bright : MonoBehaviour
     private float DECELERATION = 13f;
     private float horizontalInput;
     private bool isRunning = false;
-    private bool isFacingRight;
+    public bool isFacingRight;
     private bool isChangingDirection => (rb.velocity.x > 0f && horizontalInput < 0f) || (rb.velocity.x < 0f && horizontalInput > 0f);
 
     [Header("Jump")]
@@ -25,7 +25,7 @@ public class Mr_Bright : MonoBehaviour
     private bool canJump => Input.GetKeyDown(KeyCode.Space) && (onGround || currentJumps > 0);
 
     [Header("Components")]
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     [SerializeField] private LayerMask groundLayer;
 
     //Invisibilidad

@@ -9,18 +9,13 @@ public class Maria : MonoBehaviour
     int sustos=3;
     bool OnOffSustos = false;
     public float timer = 10;
-    float pointToStartX;
-    float pointToStartY;
     ScareBoard board;
     Vector3 positionMaria;
     // Start is called before the first frame update
     void Start()
     {
         audio = this.GetComponent<AudioSource>();
-        pointToStartX = this.transform.position.x;
-        pointToStartY = this.transform.position.y;
         positionMaria = this.transform.position;
-        Debug.Log(pointToStartX);
         board = FindObjectOfType<ScareBoard>();  
     }
 
@@ -41,7 +36,7 @@ public class Maria : MonoBehaviour
  
             }
             else{
-                gameObject.transform.Translate(new Vector3(1*speed * Time.deltaTime,0,0));
+                transform.Translate(new Vector3(1*speed * Time.deltaTime,0,0));
             }
                  
         }
