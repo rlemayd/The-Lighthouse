@@ -1,4 +1,3 @@
-using Codice.Client.GameUI.Checkin;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,11 +34,6 @@ public class Mr_Bright : MonoBehaviour
     bool statusInvisibilidad=false;
 
 
-    //Cuerda
-    private bool holding = false;
-    public Transform holdinginto;
-    private GameObject letgo;
-    public Rope Rope;
     private void Start()
     {
         isFacingRight = true;
@@ -65,7 +59,6 @@ public class Mr_Bright : MonoBehaviour
         CheckGroundCollision();
         Move();
         ProcessState();
-        CheckRopeInputs();
     }
 
     void ProcessInputs()
@@ -171,32 +164,4 @@ public class Mr_Bright : MonoBehaviour
         
     }
 
-    void OnTriggerEnter2D(Collider2D colli)
-    {if (!holding)
-        {
-            if (colli.gameObject.tag == "Rope") 
-            {
-            if (holdinginto != colli.gameObject.transform.parent)
-              { 
-                if (letgo ==null || colli.gameObject.transform.parent != letgo)
-                        HoldRope(colli.gameObject.GetComponent<Rigidbody2D>());
-              }
-                    
-            }
-        }
-    }
-    public void HoldRope(Rigidbody2D rope) {
-        rope.GetComponent<Rope>().isHolding = true;
-        holding = true;
-        holdinginto = Rope.gameObject.transform.parent;
-    }
-    void LetGo()
-    { holding = false; }
-    void CheckRopeInputs()
-    { if (Input.GetKey("x"))
-        { LetGo(); 
-        }
-
-      
-    }
 }

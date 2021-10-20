@@ -7,7 +7,6 @@ TagManager:
   - Ladder
   - Light
   - Enemy
-  - Rope
   layers:
   - Default
   - TransparentFX
