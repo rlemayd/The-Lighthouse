@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DoorInteraction : MonoBehaviour
 {
+    //
     public GameObject wonText;
     public Mr_Bright mrBright;
 
