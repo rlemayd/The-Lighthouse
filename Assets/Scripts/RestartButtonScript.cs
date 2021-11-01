@@ -7,6 +7,6 @@ public class RestartButtonScript : MonoBehaviour
 {
     public void RestartScene()
     {
-        SceneManager.LoadScene("Level 0");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

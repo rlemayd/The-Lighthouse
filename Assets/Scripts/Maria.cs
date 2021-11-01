@@ -14,7 +14,7 @@ public class Maria : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audio = this.GetComponent<AudioSource>();
+        audio = GetComponent<AudioSource>();
         positionMaria = this.transform.position;
         board = FindObjectOfType<ScareBoard>();  
     }

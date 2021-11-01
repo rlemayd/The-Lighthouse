@@ -25,7 +25,7 @@ public class Mr_Bright : MonoBehaviour
     private bool canJump => Input.GetKeyDown(KeyCode.Space) && (onGround || currentJumps > 0);
 
     [Header("Components")]
-    public Rigidbody2D rb;
+    private Rigidbody2D rb;
     [SerializeField] private LayerMask groundLayer;
 
     //Invisibilidad

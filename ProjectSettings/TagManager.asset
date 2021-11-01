@@ -10,6 +10,8 @@ TagManager:
   - Rope
   - Exit Door
   - Mr Bright
+  - GoDownDoor
+  - Maria
   layers:
   - Default
   - TransparentFX
