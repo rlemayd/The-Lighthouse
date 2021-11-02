@@ -5,7 +5,7 @@ using UnityEngine;
 public class Maria : MonoBehaviour
 {
     public float speed = 3f;
-    AudioSource audio;
+    AudioSource mariaAudio;
     int sustos=3;
     bool OnOffSustos = false;
     public float timer = 10;
@@ -14,7 +14,7 @@ public class Maria : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audio = GetComponent<AudioSource>();
+        mariaAudio = GetComponent<AudioSource>();
         positionMaria = this.transform.position;
         board = FindObjectOfType<ScareBoard>();  
     }
@@ -27,7 +27,7 @@ public class Maria : MonoBehaviour
             {
                 if (timer<0)
                 {
-                    audio.Stop();
+                    mariaAudio.Stop();
                     OnOffSustos = false;
                 }
                 else{
@@ -41,7 +41,7 @@ public class Maria : MonoBehaviour
                  
         }
         else{
-            audio.Stop();
+            mariaAudio.Stop();
             //Time.timeScale = 0;
            
         }
@@ -53,7 +53,7 @@ public class Maria : MonoBehaviour
         {
             sustos-=1;
             timer = 10;
-            audio.Play();
+            mariaAudio.Play();
             board.UpdateBoard(sustos);
             gameObject.transform.position = positionMaria;
             OnOffSustos = true;   

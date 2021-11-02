@@ -29,7 +29,7 @@ public class Mr_Bright : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
 
     //Invisibilidad
-    Light2D light;
+    Light2D MrBrightLight;
     float timerInvisibilidad=0;
     bool statusInvisibilidad=false;
 
@@ -41,7 +41,7 @@ public class Mr_Bright : MonoBehaviour
     {
         isFacingRight = true;
         rb = GetComponent<Rigidbody2D>();
-        light = this.GetComponent<Light2D>();
+        MrBrightLight = this.GetComponent<Light2D>();
         interaction = this.GetComponent<InteractionMonsters>();
     }
 
@@ -50,7 +50,7 @@ public class Mr_Bright : MonoBehaviour
         ProcessInputs();
         if (canJump) Jump();
         if (timerInvisibilidad<0){
-            light.intensity=1.5f;
+            MrBrightLight.intensity=1.5f;
             statusInvisibilidad = false;
         }
         else{
@@ -164,7 +164,7 @@ public class Mr_Bright : MonoBehaviour
     void Invisibilidad(){
         
         timerInvisibilidad = 5;
-        light.intensity=0.8f;
+        MrBrightLight.intensity=0.8f;
     }
 
     public void DisableMrBright()
