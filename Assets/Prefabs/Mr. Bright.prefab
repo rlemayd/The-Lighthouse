@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 1355236577}
   - component: {fileID: 5050018326435909880}
   - component: {fileID: 4575491730821624533}
+  - component: {fileID: 4000489258807319179}
   m_Layer: 0
   m_Name: Mr. Bright
   m_TagString: Mr Bright
@@ -266,3 +267,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 3877026952067124829}
+--- !u!114 &4000489258807319179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3877026952067124768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45ff287bed5f6a64580323d556113ac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

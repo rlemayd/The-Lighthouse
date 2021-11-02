@@ -33,12 +33,16 @@ public class Mr_Bright : MonoBehaviour
     float timerInvisibilidad=0;
     bool statusInvisibilidad=false;
 
+    //Monster Interaction
+    InteractionMonsters interaction;
+
 
     private void Start()
     {
         isFacingRight = true;
         rb = GetComponent<Rigidbody2D>();
         light = this.GetComponent<Light2D>();
+        interaction = this.GetComponent<InteractionMonsters>();
     }
 
     private void Update()
@@ -166,6 +170,12 @@ public class Mr_Bright : MonoBehaviour
     public void DisableMrBright()
     {
         gameObject.SetActive(false);
+    }
+
+    void OnCollisionEnter2D(Collision2D col){
+        if (col.gameObject.CompareTag("Enemy")){
+            interaction.iteractionWithMonsters(statusInvisibilidad,this.gameObject,col.gameObject,rb);
+        }
     }
 
 }
