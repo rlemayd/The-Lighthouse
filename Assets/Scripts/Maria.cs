@@ -48,7 +48,7 @@ public class Maria : MonoBehaviour
         
     }
 
-    void OnCollisionEnter2D(Collision2D col){
+    void OnTriggerEnter2D(Collider2D col){
         if (col.gameObject.CompareTag("Enemy"))
         {
             sustos-=1;
