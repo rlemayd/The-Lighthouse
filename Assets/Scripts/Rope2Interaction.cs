@@ -9,85 +9,63 @@ public class Rope2Interaction : MonoBehaviour
     private float HJump = 7f;
     private float VJump = 5f;
     private float thrust=1.0f;
- 
-    bool onRope;
-
-    // Start is called before the first frame update
-
 
     void Start()
     {
-        onRope=false;
+        mb.onRope = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         CheckRope2Inputs();
 
     }
-    private void FixedUpdate()
-    {
-    
-    }
-
-
-    
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-    if(collision.gameObject.tag == "Rope2" && !onRope)
+    if(collision.gameObject.tag == "Rope2" && !mb.onRope)
         {
             MovingAlong();
-            
         }
     }
+
     void OnTriggerExit2D(Collider2D col)
     {
         if(col.gameObject.tag == "Rope2")
          {
-            onRope = false;
+            mb.onRope = false;
 
          }
     }
+
     void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Rope2")
+        if(collision.gameObject.tag == "Rope2" && mb.onRope)
         {
-            Vector3 positionrope=collision.gameObject.transform.position;
-            positionrope.z=0f;
-            transform.position=positionrope;
-            
-
+            gameObject.transform.parent = collision.gameObject.transform;
+            mb.rb.gravityScale = 0f;
+            mb.rb.velocity = Vector3.zero;
         }
-
-
-
     }
+
     void LetGo()
-    { 
-        Debug.Log("fsfsf");
-        onRope = false;
- 
+    {
+        mb.onRope = false;
         playerrb2s.AddForce(new Vector2((mb.isFacingRight ? HJump : -HJump), VJump), ForceMode2D.Impulse);
+        gameObject.transform.parent = null;
+        gameObject.transform.eulerAngles = Vector3.zero;
     }
 
     void CheckRope2Inputs()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && onRope)
+        if (Input.GetKeyDown(KeyCode.Space) && mb.onRope)
         {
-        LetGo();
+            LetGo();
         }
     }
+
     void MovingAlong()
     {
-       
-        onRope = true;
-
-
+        mb.onRope = true;
     }
-
- 
-
-
 }

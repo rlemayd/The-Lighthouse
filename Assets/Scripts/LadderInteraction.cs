@@ -9,7 +9,7 @@ public class LadderInteraction : MonoBehaviour
     private bool isladder;
     private bool isclimbing;
 
-    [SerializeField] private Rigidbody2D player;
+    [SerializeField] private Mr_Bright player;
 
     private void Update()
     {
@@ -17,19 +17,19 @@ public class LadderInteraction : MonoBehaviour
         if (isladder && Mathf.Abs(vertical) > 0f)
         {
             isclimbing = true;
-            player.velocity = new Vector2(0, vertical * speed);
+            player.rb.velocity = new Vector2(0, vertical * speed);
         }
     }
 
     private void FixedUpdate()
     {
         if (isclimbing) {
-            player.gravityScale = 0f;
-            player.velocity = new Vector2(player.velocity.x, vertical * speed);
+            player.rb.gravityScale = 0f;
+            player.rb.velocity = new Vector2(player.rb.velocity.x, vertical * speed);
         }
-        else
+        else if(!isclimbing && !player.onRope)
         {
-            player.gravityScale = 0.7f;
+            player.rb.gravityScale = 0.7f;
         }
     }
 

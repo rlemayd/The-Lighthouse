@@ -14,6 +14,7 @@ public class Mr_Bright : MonoBehaviour
     private bool isRunning = false;
     public bool isFacingRight;
     private bool isChangingDirection => (rb.velocity.x > 0f && horizontalInput < 0f) || (rb.velocity.x < 0f && horizontalInput > 0f);
+    public bool onRope = false;
 
     [Header("Jump")]
     private float JUMPFORCE = 3f;
