@@ -14,9 +14,10 @@ public class Mr_Bright : MonoBehaviour
     private bool isRunning = false;
     public bool isFacingRight;
     private bool isChangingDirection => (rb.velocity.x > 0f && horizontalInput < 0f) || (rb.velocity.x < 0f && horizontalInput > 0f);
+    public bool onRope = false;
 
     [Header("Jump")]
-    private float JUMPFORCE = 3f;
+    private float JUMPFORCE = 4f;
     private float AIR_DECELERATION = 2f;
     [SerializeField] private float groundRaycastlength;
     private bool onGround;
@@ -25,7 +26,7 @@ public class Mr_Bright : MonoBehaviour
     private bool canJump => Input.GetKeyDown(KeyCode.Space) && (onGround || currentJumps > 0);
 
     [Header("Components")]
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     [SerializeField] private LayerMask groundLayer;
 
     //Invisibilidad
@@ -41,6 +42,7 @@ public class Mr_Bright : MonoBehaviour
     {
         isFacingRight = true;
         rb = GetComponent<Rigidbody2D>();
+        MrBrightLight = this.GetComponent<Light2D>();
         MrBrightLight = this.GetComponent<Light2D>();
         interaction = this.GetComponent<InteractionMonsters>();
     }
@@ -83,7 +85,7 @@ public class Mr_Bright : MonoBehaviour
     {
         if (!onGround) currentJumps--;
         rb.velocity = new Vector2(rb.velocity.x, 0);
-        rb.AddForce(Vector2.up * JUMPFORCE, ForceMode2D.Impulse);
+        rb.AddForce(Vector2.up * (JUMPFORCE+extraJumps-currentJumps), ForceMode2D.Impulse);
     }
 
     void ProcessState()
@@ -172,9 +174,11 @@ public class Mr_Bright : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    void OnCollisionEnter2D(Collision2D col){
-        if (col.gameObject.CompareTag("Enemy")){
-            interaction.iteractionWithMonsters(statusInvisibilidad,this.gameObject,col.gameObject,rb);
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.CompareTag("Enemy"))
+        {
+            interaction.iteractionWithMonsters(statusInvisibilidad, this.gameObject, col.gameObject, rb);
         }
     }
 

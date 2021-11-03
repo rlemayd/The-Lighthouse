@@ -5,11 +5,11 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class ActivableBehaviour : MonoBehaviour
 {
-    [SerializeField]private ActivableObject activableObject;
+    [SerializeField]private List<ActivableObject> activableObjects;
     private SpriteRenderer spriteRenderer;
     private ParticleSystem particles;
     private BoxCollider2D fuseCollider;
-    public Light2D fireLight;
+    private Light2D fireLight;
 
     private void Start()
     {
@@ -25,7 +25,10 @@ public class ActivableBehaviour : MonoBehaviour
     {
         if (collision.CompareTag("Mr Bright"))
         {
-            activableObject.Activate();
+            foreach(ActivableObject activableObject in activableObjects)
+            {
+                activableObject.Activate();
+            }
             spriteRenderer.color = new Color(0.3f, 0.3f, 0.3f);
             particles.Play();
             fuseCollider.enabled = false;

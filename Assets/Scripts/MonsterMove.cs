@@ -4,33 +4,37 @@ using UnityEngine;
 
 public class MonsterMove : MonoBehaviour
 {
-    public float range=6f;
     public float speed=0.5f;
-    float positionInicial;
-    int change=1;
-    // Start is called before the first frame update
+    public float changeDirectionDistance = 0.1f;
+    private Vector3 directionVector = Vector3.zero;
+    [SerializeField]private GameObject initialPosition;
+    [SerializeField]private GameObject finalPosition;
+
     void Start()
     {
-        positionInicial = transform.position.x;
+        transform.position = initialPosition.transform.position;
+        directionVector = (finalPosition.transform.position - transform.position).normalized;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(transform.position.x >= positionInicial+range)
+        if(Vector3.Distance(transform.position, finalPosition.transform.position) < changeDirectionDistance)
         {
-            change=1;
+            directionVector = (initialPosition.transform.position - transform.position).normalized;
         }
-        else if (transform.position.x <= positionInicial-range ){
-            change =0;
+        else if (Vector3.Distance(transform.position, initialPosition.transform.position) < changeDirectionDistance)
+        {
+            directionVector = (finalPosition.transform.position - transform.position).normalized;
         }
+    }
 
-        if (change == 1){
-            transform.Translate(new Vector3(speed*-1 * Time.deltaTime,0,0));
-        }
-        else if (change == 0){
-            transform.Translate(new Vector3(speed*1 * Time.deltaTime,0,0));
-        }
-        
+    private void FixedUpdate()
+    {
+        Move();
+    }
+
+    private void Move()
+    {
+        transform.Translate(directionVector * speed * Time.deltaTime);
     }
 }

@@ -4,59 +4,67 @@ using UnityEngine;
 
 public class RopeInteraction : MonoBehaviour
 {
-    private bool holding = false;
-    private float HORIZONTAL_IMPULSE = 7f;
-    private float VERTICAL_IMPULSE = 5f;
+    [SerializeField] private Mr_Bright mb;
+    private float HJump = 7f;
+    private float VJump = 5f;
 
-    [SerializeField] private Mr_Bright MrBright;
-    [SerializeField] private Rigidbody2D player;
-
-    private void FixedUpdate()
+    void Start()
     {
-        CheckRopeInputs();
-        if (holding)
+        mb.onRope = false;
+    }
+
+    void Update()
+    {
+        CheckRope2Inputs();
+
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+    if(collision.gameObject.tag == "Rope" && !mb.onRope)
         {
-            player.velocity = new Vector2(0, 0);
-            player.gravityScale = 0f;
-        }
-        else
-        {
-            player.gravityScale = 0.7f;
+            MovingAlong();
         }
     }
 
-    void OnTriggerEnter2D(Collider2D colli)
+    void OnTriggerExit2D(Collider2D col)
     {
-        if (!holding && colli.gameObject.tag == "Rope")
-        {
-            HoldRope();
+        if(col.gameObject.tag == "Rope")
+         {
+            mb.onRope = false;
+            gameObject.transform.parent = null;
+            gameObject.transform.eulerAngles = Vector3.zero;
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Rope")
+        if(collision.gameObject.tag == "Rope" && mb.onRope)
         {
-            holding = false;
+            gameObject.transform.parent = collision.gameObject.transform;
+            mb.rb.gravityScale = 0f;
+            mb.rb.velocity = Vector3.zero;
         }
-    }
-
-    public void HoldRope()
-    {
-        holding = true;
     }
 
     void LetGo()
-    { 
-        holding = false;
-        player.AddForce(new Vector2((MrBright.isFacingRight ? HORIZONTAL_IMPULSE : -HORIZONTAL_IMPULSE), VERTICAL_IMPULSE), ForceMode2D.Impulse);
+    {
+        mb.onRope = false;
+        mb.rb.AddForce(new Vector2((mb.isFacingRight ? HJump : -HJump), VJump), ForceMode2D.Impulse);
+        gameObject.transform.parent = null;
+        gameObject.transform.eulerAngles = Vector3.zero;
     }
 
-    void CheckRopeInputs()
+    void CheckRope2Inputs()
     {
-        if (Input.GetKey("x") && holding)
+        if (Input.GetKeyDown(KeyCode.Space) && mb.onRope)
         {
             LetGo();
         }
+    }
+
+    void MovingAlong()
+    {
+        mb.onRope = true;
     }
 }

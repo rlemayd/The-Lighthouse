@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Maria : MonoBehaviour
 {
-    public float speed = 3f;
+    public float speed;
     AudioSource mariaAudio;
     int sustos=3;
     bool OnOffSustos = false;
@@ -16,7 +16,8 @@ public class Maria : MonoBehaviour
     {
         mariaAudio = GetComponent<AudioSource>();
         positionMaria = this.transform.position;
-        board = FindObjectOfType<ScareBoard>();  
+        board = FindObjectOfType<ScareBoard>();
+        speed = 1f;
     }
 
     // Update is called once per frame
@@ -36,7 +37,7 @@ public class Maria : MonoBehaviour
  
             }
             else{
-                transform.Translate(new Vector3(1*speed * Time.deltaTime,0,0));
+                transform.Translate(new Vector3(speed * Time.deltaTime,0,0));
             }
                  
         }
