@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class EndDoorInteraction : MonoBehaviour
 {
-    public GameObject wonText;
+    public GameObject wonText, nextLevelButton, scareBoard;
     public Mr_Bright mrBright;
+    public Maria maria;
 
     void Start()
     {
@@ -13,17 +14,19 @@ public class EndDoorInteraction : MonoBehaviour
         wonText.SetActive(false);
     }
 
+    private void OnTriggerStay2D(Collider2D collider)
+    {
+        if (collider.gameObject.CompareTag("Mr Bright") && maria.transform.position.x >= transform.position.x)
+        {
+            ActivateWinCondition();
+        }
+    }
+
     public void ActivateWinCondition()
     {
         wonText.SetActive(true);
         mrBright.DisableMrBright();
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Mr Bright"))
-        {
-            ActivateWinCondition();
-        }
+        scareBoard.SetActive(false);
+        nextLevelButton.SetActive(true);
     }
 }

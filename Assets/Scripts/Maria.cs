@@ -8,7 +8,7 @@ public class Maria : MonoBehaviour
     AudioSource mariaAudio;
     int sustos=3;
     bool OnOffSustos = false;
-    public float timer = 10;
+    public float timer = 5;
     ScareBoard board;
     public Vector3 positionMaria;
     // Start is called before the first frame update
@@ -53,7 +53,7 @@ public class Maria : MonoBehaviour
         if (col.gameObject.CompareTag("Enemy"))
         {
             sustos-=1;
-            timer = 10;
+            timer = 5;
             mariaAudio.Play();
             board.UpdateBoard(sustos);
             gameObject.transform.position = positionMaria;

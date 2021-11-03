@@ -13,7 +13,7 @@ public class GoLevelDownDoor : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collider)
     {
-        if (collider.gameObject.CompareTag("Mr Bright") && maria.transform.position.x >= 14.5f)
+        if (collider.gameObject.CompareTag("Mr Bright") && maria.transform.position.x >= transform.position.x)
         {
 
             GoDownAFloor();

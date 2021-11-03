@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 42af67cff7bb93e4fab028b79f5efa36, type: 3}
+  m_Sprite: {fileID: 21300000, guid: abf7107b1f9fe974ba31847a7bc036fe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -153,7 +153,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 42af67cff7bb93e4fab028b79f5efa36, type: 3}
+  m_Sprite: {fileID: 21300000, guid: abf7107b1f9fe974ba31847a7bc036fe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -235,7 +235,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 42af67cff7bb93e4fab028b79f5efa36, type: 3}
+  m_Sprite: {fileID: 21300000, guid: abf7107b1f9fe974ba31847a7bc036fe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -342,3 +342,4 @@ MonoBehaviour:
   scare3: {fileID: 2856304828932570574}
   lose: {fileID: 0}
   restartButton: {fileID: 0}
+  mrBright: {fileID: 0}
