@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class Rope2Interaction : MonoBehaviour
 {
-    private Mr_Bright player;
-    private Rigidbody2D roperb2d;
-    private Rigidbody2D playerrb2s;
+    [SerializeField] private Mr_Bright mb;
+    [SerializeField] private Rigidbody2D playerrb2s;
+    private float HJump = 7f;
+    private float VJump = 5f;
+    private float thrust=1.0f;
  
     bool onRope;
 
     // Start is called before the first frame update
+
+
     void Start()
     {
         onRope=false;
@@ -19,14 +23,16 @@ public class Rope2Interaction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        CheckRope2Inputs();
+
     }
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-     
-
-
+    
     }
+
+
+    
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -41,7 +47,7 @@ public class Rope2Interaction : MonoBehaviour
         if(col.gameObject.tag == "Rope2")
          {
             onRope = false;
-            roperb2d = null;
+
          }
     }
     void OnTriggerStay2D(Collider2D collision)
@@ -60,15 +66,17 @@ public class Rope2Interaction : MonoBehaviour
     }
     void LetGo()
     { 
+        Debug.Log("fsfsf");
         onRope = false;
-        
+ 
+        playerrb2s.AddForce(new Vector2((mb.isFacingRight ? HJump : -HJump), VJump), ForceMode2D.Impulse);
     }
 
     void CheckRope2Inputs()
     {
-        if (Input.GetKey("x") && onRope)
+        if (Input.GetKeyDown(KeyCode.Space) && onRope)
         {
-            LetGo();
+        LetGo();
         }
     }
     void MovingAlong()
@@ -79,6 +87,7 @@ public class Rope2Interaction : MonoBehaviour
 
     }
 
+ 
 
 
 }
