@@ -9,7 +9,7 @@ public class Mr_Bright : MonoBehaviour
     private const float ACCELERATION = 8f;
     private float MAX_SPEED = 1.5f;
     private float MAX_RUNNING_SPEED = 3f;
-    private float DECELERATION = 13f;
+    private float DECELERATION = 6f;
     private float horizontalInput;
     private bool isRunning = false;
     public bool isFacingRight;
@@ -17,7 +17,7 @@ public class Mr_Bright : MonoBehaviour
     public bool onRope = false;
 
     [Header("Jump")]
-    private float JUMPFORCE = 4f;
+    private float JUMPFORCE = 5f;
     private float AIR_DECELERATION = 2f;
     [SerializeField] private float groundRaycastlength;
     private bool onGround;
@@ -85,7 +85,7 @@ public class Mr_Bright : MonoBehaviour
     {
         if (!onGround) currentJumps--;
         rb.velocity = new Vector2(rb.velocity.x, 0);
-        rb.AddForce(Vector2.up * (JUMPFORCE+extraJumps-currentJumps), ForceMode2D.Impulse);
+        rb.AddForce(Vector2.up * (JUMPFORCE-(extraJumps-currentJumps)), ForceMode2D.Impulse);
     }
 
     void ProcessState()

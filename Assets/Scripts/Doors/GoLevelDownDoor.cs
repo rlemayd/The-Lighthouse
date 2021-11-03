@@ -11,11 +11,11 @@ public class GoLevelDownDoor : MonoBehaviour
     {      
     }
 
-    
-    private void OnTriggerEnter2D(Collider2D collider)
+    private void OnTriggerStay2D(Collider2D collider)
     {
-        if(collider.gameObject.CompareTag("Mr Bright") && maria.transform.position.x >= 14.5f){
-            
+        if (collider.gameObject.CompareTag("Mr Bright") && maria.transform.position.x >= 14.5f)
+        {
+
             GoDownAFloor();
         }
     }
@@ -26,10 +26,12 @@ public class GoLevelDownDoor : MonoBehaviour
             case "ThirdFloorMrBrightDoor":
                 mrBright.transform.position = GameObject.Find("SecondFloorMrBrightStartDoor").transform.position;
                 maria.transform.position = GameObject.Find("SecondFloorMariaStartDoor").transform.position;
+                maria.positionMaria = maria.transform.position;
                 break;
             case "SecondFloorMrBrightEndDoor":
                 mrBright.transform.position = GameObject.Find("FirstFloorMrBrightStartDoor").transform.position;
                 maria.transform.position = GameObject.Find("FirstFloorMariaStartDoor").transform.position;
+                maria.positionMaria = maria.transform.position;
                 break;
             case "FirstFloorMrBrightRightDoor":
                 GameObject.Find("FirstFloorMariaStartDoor").SetActive(true);

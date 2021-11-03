@@ -41,7 +41,7 @@ public class RopeInteraction : MonoBehaviour
     {
         if(collision.gameObject.tag == "Rope" && mb.onRope)
         {
-            gameObject.transform.parent = collision.gameObject.transform;
+            gameObject.transform.parent = collision.gameObject.transform.parent.transform;
             mb.rb.gravityScale = 0f;
             mb.rb.velocity = Vector3.zero;
         }

@@ -10,7 +10,7 @@ public class Maria : MonoBehaviour
     bool OnOffSustos = false;
     public float timer = 10;
     ScareBoard board;
-    Vector3 positionMaria;
+    public Vector3 positionMaria;
     // Start is called before the first frame update
     void Start()
     {
