@@ -28,6 +28,7 @@ public class Mr_Bright : MonoBehaviour
     [Header("Components")]
     public Rigidbody2D rb;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private Animator animator;
 
     //Invisibilidad
     Light2D MrBrightLight;
@@ -49,6 +50,8 @@ public class Mr_Bright : MonoBehaviour
 
     private void Update()
     {
+        animator.SetFloat("speed", Mathf.Abs(rb.velocity.x));
+        animator.SetFloat("verticalSpeed", rb.velocity.y);
         ProcessInputs();
         if (canJump) Jump();
         if (timerInvisibilidad<0){
@@ -86,6 +89,7 @@ public class Mr_Bright : MonoBehaviour
         if (!onGround) currentJumps--;
         rb.velocity = new Vector2(rb.velocity.x, 0);
         rb.AddForce(Vector2.up * (JUMPFORCE-(extraJumps-currentJumps)), ForceMode2D.Impulse);
+        animator.SetBool("isJumping", true);
     }
 
     void ProcessState()
@@ -142,7 +146,9 @@ public class Mr_Bright : MonoBehaviour
 
     void CheckGroundCollision()
     {
+        bool wasOnGround = onGround;
         onGround = Physics2D.Raycast(transform.position, Vector2.down, groundRaycastlength, groundLayer);
+        if (animator.GetBool("isJumping") && onGround && !wasOnGround) animator.SetBool("isJumping", false);
     }
 
     private void OnDrawGizmos()

@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 3877026952067124770}
   - component: {fileID: 3877026952067124771}
   - component: {fileID: 3877026952067124829}
-  - component: {fileID: 3877026952067124828}
   - component: {fileID: 5050018326435909880}
   - component: {fileID: 4000489258807319179}
   - component: {fileID: 693101775584762876}
   - component: {fileID: 7273835419452226680}
   - component: {fileID: 8168777914042061335}
+  - component: {fileID: 401750642017106258}
+  - component: {fileID: 5935810609035048058}
   m_Layer: 0
   m_Name: Mr. Bright
   m_TagString: Mr Bright
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: ae50cc3c4d9ffa24e871695a2e96f0db, type: 3}
+  m_Sprite: {fileID: 371443556833180118, guid: 3836b5631a48edd46b4f84a005f84837, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -110,22 +111,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!58 &3877026952067124828
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3877026952067124768}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.000023022294, y: -0.054762967}
-  serializedVersion: 2
-  m_Radius: 0.09656539
 --- !u!114 &5050018326435909880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,6 +184,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  animator: {fileID: 401750642017106258}
 --- !u!114 &7273835419452226680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,3 +211,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 693101775584762876}
+--- !u!95 &401750642017106258
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3877026952067124768}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 52e7dccdcb88c364ca84e2ed59781568, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!70 &5935810609035048058
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3877026952067124768}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.010757536, y: -0.0071717203}
+  m_Size: {x: 0.31249213, y: 0.6208754}
+  m_Direction: 0
