@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6716676575683419022}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MonsterWithPath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5148457161066462673}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EndPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7961354516766138776}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: StartPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

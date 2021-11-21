@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 169598363379785005}
   - component: {fileID: 169598363379785000}
   - component: {fileID: 6150269107465863635}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Monster
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -155,5 +155,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
+  changeDirectionDistance: 0.1
   initialPosition: {fileID: 0}
   finalPosition: {fileID: 0}

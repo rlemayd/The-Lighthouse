@@ -6,6 +6,7 @@ using UnityEngine.Experimental.Rendering.Universal;
 public class ActivableBehaviour : MonoBehaviour
 {
     [SerializeField]private List<ActivableObject> activableObjects;
+    [SerializeField]private List<ActivableObject> deactibavleObjects;
     private SpriteRenderer spriteRenderer;
     private ParticleSystem particles;
     private BoxCollider2D fuseCollider;
@@ -28,6 +29,11 @@ public class ActivableBehaviour : MonoBehaviour
             foreach(ActivableObject activableObject in activableObjects)
             {
                 activableObject.Activate();
+            }
+            
+            foreach(ActivableObject activableObject in deactibavleObjects)
+            {
+                activableObject.Deactivate();
             }
             spriteRenderer.color = new Color(0.3f, 0.3f, 0.3f);
             particles.Play();

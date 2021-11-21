@@ -4,25 +4,36 @@ using UnityEngine;
 
 public class Maria : MonoBehaviour
 {
-    public float speed;
-    AudioSource mariaAudio;
-    int sustos=3;
+    [Header("Movement")]
+    [SerializeField] private float minSpeed = 0.1f;
+    [SerializeField] private float maxSpeed = 0.8f;
+    [SerializeField] private float minDistance = 0f;
+    [SerializeField] private float maxDistance = 3f;
+    [SerializeField] private float distanceOffset = 2f;
+    public float currentSpeed;
+    public Vector3 positionMaria;
+    public Mr_Bright mrBright;
+
+    [Header("Scares")]
+    int sustos = 3;
     bool OnOffSustos = false;
     public float timer = 5;
+    AudioSource mariaAudio;
     ScareBoard board;
-    public Vector3 positionMaria;
-    // Start is called before the first frame update
+
     void Start()
     {
         mariaAudio = GetComponent<AudioSource>();
         positionMaria = this.transform.position;
+        mrBright = FindObjectOfType<Mr_Bright>();
         board = FindObjectOfType<ScareBoard>();
-        speed = 1f;
+        currentSpeed = minSpeed;
     }
 
-    // Update is called once per frame
     void Update()
     {
+        CalculateSpeed();
+
         if (sustos >0){
             if (OnOffSustos == true)
             {
@@ -34,19 +45,33 @@ public class Maria : MonoBehaviour
                 else{
                     timer -= Time.deltaTime;
                 }
- 
             }
             else{
-                transform.Translate(new Vector3(speed * Time.deltaTime,0,0));
+                transform.Translate(new Vector3(currentSpeed * Time.deltaTime,0,0));
             }
-                 
         }
         else{
             mariaAudio.Stop();
-            //Time.timeScale = 0;
-           
         }
-        
+    }
+
+    private void CalculateSpeed()
+    {
+        float distance = (transform.position.x - mrBright.transform.position.x) + distanceOffset;
+        if(distance > maxDistance)
+        {
+            currentSpeed = minSpeed;
+        }
+        else if (distance < minDistance)
+        {
+            currentSpeed = maxSpeed;
+        }
+        else
+        {
+            var distRatio = (maxDistance-distance) / (maxDistance);
+            var diffSpeed = maxSpeed - minSpeed;
+            currentSpeed = (distRatio * diffSpeed) + minSpeed;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D col){

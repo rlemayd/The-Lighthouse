@@ -55,6 +55,7 @@ public class Mr_Bright : MonoBehaviour
         ProcessInputs();
         if (canJump) Jump();
         if (timerInvisibilidad<0){
+            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("Player"),false);
             MrBrightLight.intensity=1.5f;
             statusInvisibilidad = false;
         }
@@ -65,6 +66,7 @@ public class Mr_Bright : MonoBehaviour
 
     void FixedUpdate()
     {
+        Debug.Log(Physics2D.GetIgnoreLayerCollision(6,7));
         CheckGroundCollision();
         Move();
         ProcessState();
@@ -80,7 +82,6 @@ public class Mr_Bright : MonoBehaviour
                 Invisibilidad();
                 statusInvisibilidad = true;
             }
-            
         }
     }
 
@@ -157,7 +158,8 @@ public class Mr_Bright : MonoBehaviour
         Gizmos.DrawLine(transform.position, transform.position + Vector3.down * groundRaycastlength);
     }
 
-    void OnTriggerStay2D(Collider2D col){
+    void OnTriggerStay2D(Collider2D col)
+    {
         
         if (col.gameObject.CompareTag("Light") )
         {
@@ -169,8 +171,9 @@ public class Mr_Bright : MonoBehaviour
         }
     }
 
-    void Invisibilidad(){
-        
+    void Invisibilidad()
+    {
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("Player"));
         timerInvisibilidad = 5;
         MrBrightLight.intensity=0.8f;
     }
