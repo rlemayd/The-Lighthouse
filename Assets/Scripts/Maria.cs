@@ -55,6 +55,11 @@ public class Maria : MonoBehaviour
         }
     }
 
+    public void restartSustos()
+    {
+        sustos = 3;
+    }
+
     private void CalculateSpeed()
     {
         float distance = (transform.position.x - mrBright.transform.position.x) + distanceOffset;
@@ -80,7 +85,7 @@ public class Maria : MonoBehaviour
             sustos-=1;
             timer = 5;
             mariaAudio.Play();
-            board.UpdateBoard(sustos);
+            board.UpdateBoard(sustos, this);
             gameObject.transform.position = positionMaria;
             OnOffSustos = true;   
         }

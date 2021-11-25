@@ -12,8 +12,8 @@ public class Mr_Bright : MonoBehaviour
     private float DECELERATION = 6f;
     private float horizontalInput;
     private bool isRunning = false;
-    public bool isFacingRight;
     private bool isChangingDirection => (rb.velocity.x > 0f && horizontalInput < 0f) || (rb.velocity.x < 0f && horizontalInput > 0f);
+    public bool isFacingRight;
     public bool onRope = false;
 
     [Header("Jump")]
@@ -66,7 +66,6 @@ public class Mr_Bright : MonoBehaviour
 
     void FixedUpdate()
     {
-        Debug.Log(Physics2D.GetIgnoreLayerCollision(6,7));
         CheckGroundCollision();
         Move();
         ProcessState();
