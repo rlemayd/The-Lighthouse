@@ -1522,6 +1522,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1068126597}
     m_Modifications:
+    - target: {fileID: 2058989858, guid: 4826ab88e39f8004ebda0780ac32eacd, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2856304827843875007, guid: 4826ab88e39f8004ebda0780ac32eacd, type: 3}
       propertyPath: m_SortingOrder
       value: 6
@@ -19207,6 +19211,7 @@ GameObject:
   - component: {fileID: 1875274773}
   - component: {fileID: 1875274776}
   - component: {fileID: 1875274777}
+  - component: {fileID: 1875274778}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -19326,6 +19331,18 @@ MonoBehaviour:
   mrBright: {fileID: 1735845525}
   cameraDistance: 100
   zoom: 5
+--- !u!114 &1875274778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875274772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05650edba2c3e7240a3cef6d30c2dca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1876792485 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6716676575683419022, guid: aa6a8b148694bf1488b7913815ee44dd, type: 3}
