@@ -6,7 +6,8 @@ public class ActivableObject : MonoBehaviour
 {
     void Start()
     {
-        gameObject.SetActive(false);
+        if(gameObject.CompareTag("activable object"))
+            gameObject.SetActive(false);
     }
 
     public void Activate()

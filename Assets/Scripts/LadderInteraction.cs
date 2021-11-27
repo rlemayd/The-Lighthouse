@@ -35,14 +35,16 @@ public class LadderInteraction : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ladder")){
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ladder"))
+        {
             isladder = true;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ladder")){
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ladder"))
+        {  
             isladder = false;
             isclimbing = false;
         }
