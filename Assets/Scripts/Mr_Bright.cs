@@ -159,13 +159,12 @@ public class Mr_Bright : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D col)
     {
-        
         if (col.gameObject.CompareTag("Light") )
         {
-            if (Input.GetKey(KeyCode.E)){
-                col.gameObject.GetComponent<WallLight>().lightAssigned.SetActive(true);
-                col.gameObject.GetComponent<WallLight>().pointEdge.SetActive(false);
-                
+            WallLight light = col.gameObject.GetComponent<WallLight>();
+            if (Input.GetKey(KeyCode.E))
+            {
+                light.TurnOn();
             } 
         }
     }
