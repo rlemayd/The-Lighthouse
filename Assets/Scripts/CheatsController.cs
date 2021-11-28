@@ -17,6 +17,11 @@ public class CheatsController : MonoBehaviour
         cheatCodeManager = new CheatCodeManager();
         // Register cheats
         cheatCodeManager.RegisterCheat(new CheatCode("level1", GoToLevelOne));
+        cheatCodeManager.RegisterCheat(new CheatCode("level2", GoToLevelTwo));
+        cheatCodeManager.RegisterCheat(new CheatCode("level3", GoToLevelThree));
+        cheatCodeManager.RegisterCheat(new CheatCode("level4", GoToLevelFour));
+        cheatCodeManager.RegisterCheat(new CheatCode("level5", GoToLevelFive));
+        cheatCodeManager.RegisterCheat(new CheatCode("notscared", RecoverMariaLifes));
         cheatCodeManager.RegisterCheat(new CheatCode("killmaria", KillMaria));
     }
 
@@ -59,6 +64,27 @@ public class CheatsController : MonoBehaviour
     private void GoToLevelOne()
     {
         SceneManager.LoadScene("Level 1");
+    }
+    private void GoToLevelTwo()
+    {
+        SceneManager.LoadScene("Level 2");
+    }
+    private void GoToLevelThree()
+    {
+        SceneManager.LoadScene("Level 3");
+    }
+    private void GoToLevelFour()
+    {
+        SceneManager.LoadScene("Level 4");
+    }
+    private void GoToLevelFive()
+    {
+        SceneManager.LoadScene("Level 5");
+    }
+    private void RecoverMariaLifes()
+    {
+        Maria maria = GameObject.FindGameObjectWithTag("Maria").GetComponent<Maria>();
+        maria.restartSustos();
     }
 
     private void KillMaria()
