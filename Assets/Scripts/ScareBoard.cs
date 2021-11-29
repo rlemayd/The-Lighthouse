@@ -14,17 +14,10 @@ public class ScareBoard : MonoBehaviour
         scare3.SetActive(true);
         lose.SetActive(false);
         restartButton.SetActive(false);
-        RectTransform rt = (RectTransform)transform;
-        RectTransform rt2 = (RectTransform)mrBrightLife.transform;
-        Debug.Log(rt.rect.width);
+
         if (GameLogic.MrBrightLifes == 0)
         {
-            mrBrightLife.SetActive(false);
-            Vector3 position = transform.position;
-            //TODO; Poner la posicion proporcinal de las vidas de maria
-            //position.x = mrBrightLife.transform.position.x + (rt2.rect.width/rt.rect.width);
-            position.x = mrBrightLife.transform.position.x;
-            transform.position = position;
+            mrBrightLife.transform.GetChild(1).gameObject.SetActive(false);
         }
     }
 

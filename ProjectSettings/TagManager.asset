@@ -15,6 +15,7 @@ TagManager:
   - fuse
   - activable object
   - deactivable object
+  - Scare Board
   layers:
   - Default
   - TransparentFX

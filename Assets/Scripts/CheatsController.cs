@@ -84,7 +84,11 @@ public class CheatsController : MonoBehaviour
     private void RecoverMariaLifes()
     {
         Maria maria = GameObject.FindGameObjectWithTag("Maria").GetComponent<Maria>();
+        ScareBoard scareBoard = GameObject.FindGameObjectWithTag("Scare Board").GetComponent<ScareBoard>();
         maria.restartSustos();
+        scareBoard.scare1.SetActive(true);
+        scareBoard.scare2.SetActive(true);
+        scareBoard.scare3.SetActive(true);
     }
 
     private void KillMaria()
