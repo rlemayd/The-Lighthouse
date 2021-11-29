@@ -15,6 +15,15 @@ public class WallLight : MonoBehaviour
         lightAssigned.SetActive(true);
         pointEdge.SetActive(false);
         ScoreController.instance.AddScore(100);
+        UpdateFloorCounter();
     }
 
+    private void UpdateFloorCounter()
+    {
+        FloorController floor = gameObject.GetComponentInParent<FloorController>();
+        if (floor)
+        {
+            floor.UpdateLightsCount();
+        }
+    }
 }

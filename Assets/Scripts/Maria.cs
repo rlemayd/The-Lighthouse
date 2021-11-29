@@ -10,6 +10,7 @@ public class Maria : MonoBehaviour
     [SerializeField] private float minDistance = 0f;
     [SerializeField] private float maxDistance = 3f;
     [SerializeField] private float distanceOffset = 2f;
+    private bool isFloorCompleted;
     public float currentSpeed;
     public Vector3 positionMaria;
     public Mr_Bright mrBright;
@@ -62,21 +63,38 @@ public class Maria : MonoBehaviour
 
     private void CalculateSpeed()
     {
-        float distance = (transform.position.x - mrBright.transform.position.x) + distanceOffset;
-        if(distance > maxDistance)
+        if (isFloorCompleted)
         {
-            currentSpeed = minSpeed;
-        }
-        else if (distance < minDistance)
-        {
-            currentSpeed = maxSpeed;
+            currentSpeed = 5;
         }
         else
         {
-            var distRatio = (maxDistance-distance) / (maxDistance);
-            var diffSpeed = maxSpeed - minSpeed;
-            currentSpeed = (distRatio * diffSpeed) + minSpeed;
+            float distance = (transform.position.x - mrBright.transform.position.x) + distanceOffset;
+            if(distance > maxDistance)
+            {
+                currentSpeed = minSpeed;
+            }
+            else if (distance < minDistance)
+            {
+                currentSpeed = maxSpeed;
+            }
+            else
+            {
+                var distRatio = (maxDistance-distance) / (maxDistance);
+                var diffSpeed = maxSpeed - minSpeed;
+                currentSpeed = (distRatio * diffSpeed) + minSpeed;
+            }
         }
+    }
+
+    public void SpeedUp()
+    {
+        isFloorCompleted = true;
+    }
+
+    public void SlowDown()
+    {
+        isFloorCompleted = false;
     }
 
     void OnTriggerEnter2D(Collider2D col){

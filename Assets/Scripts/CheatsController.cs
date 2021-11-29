@@ -109,8 +109,6 @@ public class CheatCode
         this.action = action;
         this.code = code;
     }
-
-    
 }
 
 public class CheatCodeManager

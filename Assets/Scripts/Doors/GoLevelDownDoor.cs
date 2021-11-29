@@ -25,13 +25,11 @@ public class GoLevelDownDoor : MonoBehaviour
         {
             case "ThirdFloorMrBrightDoor":
                 mrBright.transform.position = GameObject.Find("SecondFloorMrBrightStartDoor").transform.position;
-                maria.transform.position = GameObject.Find("SecondFloorMariaStartDoor").transform.position;
-                maria.positionMaria = maria.transform.position;
+                UpdateMaria(GameObject.Find("SecondFloorMariaStartDoor").transform.position);
                 break;
             case "SecondFloorMrBrightEndDoor":
                 mrBright.transform.position = GameObject.Find("FirstFloorMrBrightStartDoor").transform.position;
-                maria.transform.position = GameObject.Find("FirstFloorMariaStartDoor").transform.position;
-                maria.positionMaria = maria.transform.position;
+                UpdateMaria(GameObject.Find("FirstFloorMariaStartDoor").transform.position);
                 break;
             case "FirstFloorMrBrightRightDoor":
                 GameObject.Find("FirstFloorMariaStartDoor").SetActive(true);
@@ -40,5 +38,12 @@ public class GoLevelDownDoor : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    private void UpdateMaria(Vector3 position)
+    {
+        maria.transform.position = position;
+        maria.positionMaria = maria.transform.position;
+        maria.SlowDown();
     }
 }
