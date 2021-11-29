@@ -18,7 +18,10 @@ public class FloorController : MonoBehaviour
         if(totalLightsCount == lightsOnCount)
         {
             Maria maria = GameObject.FindGameObjectWithTag("Maria").GetComponent<Maria>();
-            maria.SpeedUp();
+            if (maria)
+            {
+                maria.SpeedUp();
+            }
         }
     }
 }

@@ -22,6 +22,7 @@ public class CheatsController : MonoBehaviour
         cheatCodeManager.RegisterCheat(new CheatCode("level4", GoToLevelFour));
         cheatCodeManager.RegisterCheat(new CheatCode("level5", GoToLevelFive));
         cheatCodeManager.RegisterCheat(new CheatCode("notscared", RecoverMariaLifes));
+        cheatCodeManager.RegisterCheat(new CheatCode("infinitejumps", InfiniteJumps));
         cheatCodeManager.RegisterCheat(new CheatCode("killmaria", KillMaria));
     }
 
@@ -89,6 +90,12 @@ public class CheatsController : MonoBehaviour
         scareBoard.scare1.SetActive(true);
         scareBoard.scare2.SetActive(true);
         scareBoard.scare3.SetActive(true);
+    }
+
+    private void InfiniteJumps()
+    {
+        Mr_Bright mrBright = GameObject.FindGameObjectWithTag("Mr Bright").GetComponent<Mr_Bright>();
+        mrBright.InfiniteJumps();
     }
 
     private void KillMaria()

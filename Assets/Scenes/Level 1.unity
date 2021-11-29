@@ -1445,6 +1445,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fc4b25bab95af14daf16839614eb410, type: 3}
+--- !u!1 &666967278 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3877026952067124768, guid: eef01027570836049850f3c932d8ccc8, type: 3}
+  m_PrefabInstance: {fileID: 1524485971}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &666967287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666967278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81e52ab1bbf8d6c448594097cf966935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &689075531 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7504036144354141230, guid: b610c7dcd44f5ce4ab0e7df4dfef8c81, type: 3}
@@ -2763,7 +2780,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8966706541676208703, guid: bbe1d8c7273bf5c4bb9e0ad99f91ca53, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5999994
+      value: 1.39
       objectReference: {fileID: 0}
     - target: {fileID: 8966706541676208703, guid: bbe1d8c7273bf5c4bb9e0ad99f91ca53, type: 3}
       propertyPath: m_LocalPosition.z
@@ -18848,7 +18865,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 693101775584762876, guid: eef01027570836049850f3c932d8ccc8, type: 3}
   m_PrefabInstance: {fileID: 1524485971}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 666967278}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b54b92217826304c9a7f881f79fda79, type: 3}
@@ -19278,7 +19295,6 @@ GameObject:
   - component: {fileID: 1875274773}
   - component: {fileID: 1875274776}
   - component: {fileID: 1875274777}
-  - component: {fileID: 1875274778}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -19398,18 +19414,6 @@ MonoBehaviour:
   mrBright: {fileID: 1735845525}
   cameraDistance: 100
   zoom: 5
---- !u!114 &1875274778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1875274772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05650edba2c3e7240a3cef6d30c2dca9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1876792485 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6716676575683419022, guid: aa6a8b148694bf1488b7913815ee44dd, type: 3}
@@ -23170,7 +23174,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2330660352091702643, guid: 70f7ee02e2ae4d84fa2b05696c1c5f11, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -170.41
+      value: -170.41003
       objectReference: {fileID: 0}
     - target: {fileID: 2330660352091702643, guid: 70f7ee02e2ae4d84fa2b05696c1c5f11, type: 3}
       propertyPath: m_AnchoredPosition.y

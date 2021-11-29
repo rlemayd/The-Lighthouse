@@ -15,7 +15,6 @@ public class GoLevelDownDoor : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Mr Bright") && maria.transform.position.x >= transform.position.x)
         {
-
             GoDownAFloor();
         }
     }

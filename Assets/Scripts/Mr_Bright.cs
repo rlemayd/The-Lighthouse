@@ -88,7 +88,7 @@ public class Mr_Bright : MonoBehaviour
     {
         if (!onGround) currentJumps--;
         rb.velocity = new Vector2(rb.velocity.x, 0);
-        rb.AddForce(Vector2.up * (JUMPFORCE-(extraJumps-currentJumps)), ForceMode2D.Impulse);
+        rb.AddForce(Vector2.up * (JUMPFORCE - (currentJumps < extraJumps-1 ? 1.5f : 0)), ForceMode2D.Impulse);
         animator.SetBool("isJumping", true);
     }
 
@@ -179,6 +179,11 @@ public class Mr_Bright : MonoBehaviour
     public void DisableMrBright()
     {
         gameObject.SetActive(false);
+    }
+
+    public void InfiniteJumps()
+    {
+        extraJumps = int.MaxValue;
     }
 
     void OnCollisionEnter2D(Collision2D col)

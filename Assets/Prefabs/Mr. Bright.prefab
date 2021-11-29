@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 8168777914042061335}
   - component: {fileID: 401750642017106258}
   - component: {fileID: 5935810609035048058}
+  - component: {fileID: 8963346270284455323}
   m_Layer: 0
   m_Name: Mr. Bright
   m_TagString: Mr Bright
@@ -246,3 +247,15 @@ CapsuleCollider2D:
   m_Offset: {x: 0.010757536, y: -0.08581355}
   m_Size: {x: 0.31249213, y: 0.46359175}
   m_Direction: 0
+--- !u!114 &8963346270284455323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3877026952067124768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05650edba2c3e7240a3cef6d30c2dca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
