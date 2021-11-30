@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class ActivableObject : MonoBehaviour
 {
-    void Start()
-    {
-        if(gameObject.CompareTag("activable object"))
-            gameObject.SetActive(false);
-    }
-
     public void Activate()
     {
         gameObject.SetActive(true);

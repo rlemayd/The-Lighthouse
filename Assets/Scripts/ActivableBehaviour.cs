@@ -6,7 +6,7 @@ using UnityEngine.Experimental.Rendering.Universal;
 public class ActivableBehaviour : MonoBehaviour
 {
     [SerializeField]private List<ActivableObject> activableObjects;
-    [SerializeField]private List<ActivableObject> deactibavleObjects;
+    [SerializeField]private List<ActivableObject> deactivableObjects;
     private SpriteRenderer spriteRenderer;
     private ParticleSystem particles;
     private BoxCollider2D fuseCollider;
@@ -14,12 +14,27 @@ public class ActivableBehaviour : MonoBehaviour
 
     private void Start()
     {
+        PrepareObjects();
         fuseCollider = GetComponent<BoxCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         particles = GetComponent<ParticleSystem>();
         fireLight = GetComponent<Light2D>();
         fireLight.enabled = false;
         particles.Stop();
+    }
+
+    private void OnEnable()
+    {
+        particles = GetComponent<ParticleSystem>();
+        particles.Stop();
+    }
+
+    private void PrepareObjects()
+    {
+        foreach (ActivableObject activable in activableObjects)
+        {
+            activable.Deactivate();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -31,7 +46,7 @@ public class ActivableBehaviour : MonoBehaviour
                 activableObject.Activate();
             }
             
-            foreach(ActivableObject activableObject in deactibavleObjects)
+            foreach(ActivableObject activableObject in deactivableObjects)
             {
                 activableObject.Deactivate();
             }
