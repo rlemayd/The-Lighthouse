@@ -93,3 +93,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 2330660352091702640}
+  scoreTrackerPrefab: {fileID: 481328174365176413, guid: efe5a72ac48f62247941242861bb29fd, type: 3}

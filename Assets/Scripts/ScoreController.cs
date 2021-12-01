@@ -10,6 +10,7 @@ public class ScoreController : MonoBehaviour
     private int totalScore = 0;
     public Text scoreText;
     ScoreTracker tracker;
+    [SerializeField] private GameObject scoreTrackerPrefab;
 
     private void Awake()
     {
@@ -18,6 +19,11 @@ public class ScoreController : MonoBehaviour
         if (tracker)
         {
             totalScore = tracker.score;
+        }
+        else
+        {
+            GameObject trackerInstance = Instantiate(scoreTrackerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+            tracker = trackerInstance.GetComponent<ScoreTracker>();
         }
     }
 

@@ -23,7 +23,7 @@ public class CheatsController : MonoBehaviour
         cheatCodeManager.RegisterCheat(new CheatCode("level5", GoToLevelFive));
         cheatCodeManager.RegisterCheat(new CheatCode("notscared", RecoverMariaLifes));
         cheatCodeManager.RegisterCheat(new CheatCode("infinitejumps", InfiniteJumps));
-        cheatCodeManager.RegisterCheat(new CheatCode("killmaria", KillMaria));
+        cheatCodeManager.RegisterCheat(new CheatCode("givemepoints", AddPoints));
     }
 
     private void Update()
@@ -98,10 +98,9 @@ public class CheatsController : MonoBehaviour
         mrBright.InfiniteJumps();
     }
 
-    private void KillMaria()
+    private void AddPoints()
     {
-        GameObject maria = GameObject.FindGameObjectWithTag("Maria");
-        maria.SetActive(false);
+        ScoreController.instance.AddScore(1000);
     }
 }
 
