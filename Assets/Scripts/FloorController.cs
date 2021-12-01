@@ -9,7 +9,7 @@ public class FloorController : MonoBehaviour
     void Start()
     {
         lightsOnCount = 0;
-        totalLightsCount = gameObject.GetComponentsInChildren<WallLight>().Length;
+        totalLightsCount = gameObject.GetComponentsInChildren<WallLight>(true).Length;
     }
 
     public void UpdateLightsCount()
