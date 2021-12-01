@@ -20,6 +20,7 @@ public class GoLevelDownDoor : MonoBehaviour
     }
 
     private void GoDownAFloor(){
+        ScoreController.instance.AddScore(200);
         switch (this.name)
         {
             case "ThirdFloorMrBrightDoor":

@@ -7,6 +7,14 @@ public class ScoreTracker : MonoBehaviour
     public int score = 0;
     private void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+        int numberOfTrackers = FindObjectsOfType<ScoreTracker>().Length;
+        if (numberOfTrackers != 1)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(this.gameObject);
+        }
     }
 }

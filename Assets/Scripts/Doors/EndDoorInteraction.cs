@@ -24,6 +24,7 @@ public class EndDoorInteraction : MonoBehaviour
 
     public void ActivateWinCondition()
     {
+        ScoreController.instance.AddScore(800);
         wonText.SetActive(true);
         mrBright.DisableMrBright();
         scareBoard.SetActive(false);

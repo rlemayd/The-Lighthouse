@@ -191,6 +191,7 @@ public class Mr_Bright : MonoBehaviour
         if (col.gameObject.CompareTag("Enemy"))
         {
             interaction.iteractionWithMonsters(statusInvisibilidad, this.gameObject, col.gameObject, rb);
+            ScoreController.instance.AddScore(-10);
         }
     }
 

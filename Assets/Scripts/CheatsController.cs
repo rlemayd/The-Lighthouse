@@ -45,7 +45,6 @@ public class CheatsController : MonoBehaviour
         if (Event.current.Equals(Event.KeyboardEvent("return"))) OnReturn();
         GUI.Box(new Rect(0, 0, Screen.width, 30), "");
         codeBuffer = GUI.TextField(new Rect(10, 0, Screen.width - 10, 20), codeBuffer);
-
     }
 
     private void OnReturn()
@@ -54,6 +53,7 @@ public class CheatsController : MonoBehaviour
         {
             HandleConsoleInput();
             codeBuffer = "";
+            showConsole = !showConsole;
         }
     }
 
