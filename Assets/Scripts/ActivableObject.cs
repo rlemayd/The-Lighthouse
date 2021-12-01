@@ -13,9 +13,4 @@ public class ActivableObject : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
-
-    public bool IsActive()
-    {
-        return gameObject.activeSelf;
-    }
 }

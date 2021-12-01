@@ -8,6 +8,6 @@ public class RestartButtonScript : MonoBehaviour
     public void RestartScene()
     {
         GameLogic.MrBrightLifes = 1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("StartScreen");
     }
 }
