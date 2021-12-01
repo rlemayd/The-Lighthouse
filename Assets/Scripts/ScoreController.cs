@@ -9,10 +9,16 @@ public class ScoreController : MonoBehaviour
 
     private int totalScore = 0;
     public Text scoreText;
+    ScoreTracker tracker;
 
     private void Awake()
     {
         instance = this;
+        tracker = FindObjectOfType<ScoreTracker>();
+        if (tracker)
+        {
+            totalScore = tracker.score;
+        }
     }
 
     // Start is called before the first frame update
@@ -24,7 +30,7 @@ public class ScoreController : MonoBehaviour
     public void AddScore(int scoreToAdd)
     {
         totalScore += scoreToAdd;
+        tracker.score = totalScore;
         scoreText.text = totalScore.ToString();
     }
-    
 }
