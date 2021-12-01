@@ -24,6 +24,11 @@ public class GoToNextLevelScript : MonoBehaviour
         else
         {
             SceneManager.LoadScene("StartScreen");
+            ScoreTracker tracker = FindObjectOfType<ScoreTracker>();
+            if (tracker)
+            {
+                Destroy(tracker);
+            }
         }
     }
 }

@@ -10,6 +10,11 @@ public class MenuInteraction : MonoBehaviour
         if (Input.GetKey(KeyCode.Backspace))
         {
             SceneManager.LoadScene("StartScreen");
+            ScoreTracker tracker = FindObjectOfType<ScoreTracker>();
+            if (tracker)
+            {
+                Destroy(tracker);
+            }
         }   
     }
 }
