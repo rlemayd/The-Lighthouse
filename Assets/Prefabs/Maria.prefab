@@ -143,7 +143,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1030c8f6b91178043a7f87f475c6ca63, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8cf5b3d42cfb0fa41bcf0d50066753b0, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.16
   m_Pitch: 1
@@ -241,6 +241,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73c886517b503074bbd759088346b5a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  timer: 10
+  minSpeed: 0.1
+  maxSpeed: 0.6
+  minDistance: 0
+  maxDistance: 3
+  distanceOffset: 2
+  currentSpeed: 0
   positionMaria: {x: 0, y: 0, z: 0}
+  mrBright: {fileID: 0}
+  timer: 10
