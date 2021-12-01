@@ -86,6 +86,7 @@ public class Mr_Bright : MonoBehaviour
 
     void Jump()
     {
+        if (onRope) return;
         if (!onGround) currentJumps--;
         rb.velocity = new Vector2(rb.velocity.x, 0);
         rb.AddForce(Vector2.up * (JUMPFORCE - (currentJumps < extraJumps-1 ? 1.5f : 0)), ForceMode2D.Impulse);
